@@ -1,0 +1,37 @@
+syntax="proto3";
+
+service UserService {
+  rpc GetUser(GetUserRequest) returns (GetUserResponse) {}
+  rpc CreateUser(CreateUserRequest) returns (CreateUserResponse) {}
+  rpc changePassowrd(changePassowrdRequest) returns (GetUserResponse) {}
+//   rpc UpdateUser(UpdateUserRequest) returns (UpdateUserResponse) {}
+//   rpc DeleteUser(DeleteUserRequest) returns (DeleteUserResponse) {}
+}
+
+message changePassowrdRequest{
+  string email = 1;
+  string oldPassword = 2;
+  string newPassword = 3;
+}
+
+message GetUserRequest {
+  string email = 1;
+}
+message GetUserResponse{
+  int32 status=2;
+}
+
+message CreateUserRequest {
+  string name = 1;
+  string email = 2;
+  string password = 3;
+}
+
+message CreateUserResponse {
+    string name =4;
+    // string email = 5;
+    // string password = 6;
+    // bool is_authenticated = 7;
+    // bool is_verified = 8;
+    // bool is_login_enabled = 9;
+}
